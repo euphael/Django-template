@@ -1,0 +1,13 @@
+<!-- minha_app/templates/index.html -->
+<button id="btn">Executar</button>
+<div id="resultado"></div>
+
+<script>
+    document.getElementById("btn").addEventListener("click", function() {
+        fetch("{% url 'soma' %}")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("resultado").innerHTML = data.resultado;
+            });
+    });
+</script>
